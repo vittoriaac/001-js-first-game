@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS introcution</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+
+  <div class="btn btn-primary btn-custom" onclick="addANumber(+3000)" > + 3000 </div>
+  <div class="btn btn-primary btn-custom" onclick="addANumber(-30)" > - 30 </div>
+  <div class="btn btn-primary btn-custom" onclick="addANumber(150)" > + 150 </div>
+  <div class="btn btn-primary btn-custom" onclick="addANumber(99999)" > + 99999 </div>
+  <div class="btn btn-primary btn-custom" onclick="addANumber(-6000)" > - 6000 </div>
+  <div class="btn btn-primary btn-custom" onclick="addANumber(-84)" > - 84 </div>
+  <div class="btn btn-primary btn-custom" onclick="addANumber(+105)" > + 105 </div>
+  <div class="btn btn-primary btn-custom" onclick="addANumber(+338)" > + 338 </div>
+  <div class="btn btn-primary btn-custom" onclick="addANumber(+2488)" > + 2488 </div>
+  <div class="btn btn-primary btn-custom" onclick="addANumber(-1054)" > - 1054 </div>
+  <div class="btn btn-primary btn-custom" onclick="addANumber(-73333)" > - 73333 </div>
+  <div class="btn btn-primary btn-custom" onclick="addANumber(-592)" > - 592 </div>
+  <div class="btn btn-primary btn-custom" onclick="addANumber(-1183)" > - 1183 </div>
+  <div class="btn btn-primary btn-custom" onclick="addANumber(+7176)" > + 7176 </div>
+  <div class="btn btn-primary btn-custom" onclick="addANumber(+5445)" > + 5445 </div>
+
+
+  <div class="counter">0</div>
+  <h1>Target</h1>
+  <div class="target"></div>
+
+  <h1>Turn</h1>
+  <div class="turn"></div>
+  <script>
+   
+    const audio = new Audio('sound.mp3')
+    let count = 0
+    let target= parseInt(Math.random() * 31) * 87
+    let person1 = prompt('Name of person 1')
+    let person2 = prompt('Name of person 2')
+
+
+    const turnEl = document.querySelector('.turn')
+    turnEl.innerHTML = person1
+    
+    const targetEl = document.querySelector('.target')
+    targetEl.innerHTML = target
+
+    
+    const addANumber = ( numberToAdd ) => {
+      audio.pause()
+      audio.currentTime = 0
+      audio.play()
+     
+      count = count + numberToAdd
+
+      
+      const counterEl = document.querySelector('.counter')
+      counterEl.innerHTML = count
+
+      if (turnEl.innerHTML == person1) {
+        turnEl.innerHTML = person2
+      } else{
+        turnEl.innerHTML = person1
+      }
+    }
+
+    
+  </script>
+</body>
+</html>
